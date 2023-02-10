@@ -5,7 +5,7 @@ with open('data.json') as data_json:
     
 
 import pymysql.cursors
-connection = pymysql.connect(host='127.0.0.1',user='root',password='963258854',database='teste')
+connection = pymysql.connect(host='127.0.0.1',user='root',password='x',database='x')
 with connection:
     with connection.cursor() as cursor:
         print("Connected!")
