@@ -9,7 +9,17 @@ connection = pymysql.connect(host='127.0.0.1',user='root',password='x',database=
 with connection:
     with connection.cursor() as cursor:
         print("Connected!")
-        print(data['-NNDEL_L4QfRInEn5Im6']['datetime'])
-        sql = 'INSERT INTO tableteste (dataid) VALUE (%s)'
-        cursor.execute(sql,(1))
+        
+        
+ for key, list in data.items():
+    sql= "INSERT INTO dados (id, data_hora, hum,led, lux, temp) VALUES (%s, %s, %s, %s, %s, %s)"
+    d1=(str(key),
+        int(list.get('datetime')),
+        list.get('hum'),
+        list.get('ledDiff'),
+        list.get('lux'),
+        list.get('temp'))
+    cursor.execute(sql, d1)
+    connection.commit()
+    print("INSERTED")
         
