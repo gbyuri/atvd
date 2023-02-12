@@ -1,0 +1,16 @@
+USE teste;
+
+CREATE TABLE dados (
+id VARCHAR(30) UNIQUE NOT NULL,
+dia DATE,
+hora TIME,
+hum INT(3),
+led INT(3),
+lux REAL,
+temp REAL,
+PRIMARY KEY(id)
+);
+
+SELECT * FROM dados;
+
+DROP TABLE dados;
